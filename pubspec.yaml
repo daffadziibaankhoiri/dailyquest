@@ -82,6 +82,12 @@ flutter:
     - family: ProximaNova
       fonts:
         - asset: assets/font/proximanovacond-medium.otf
+    - family: ProximaNovaBold
+      fonts:
+        - asset: assets/font/proximanova-bold.otf
+    - family:  ProximaNovaBlack
+      fonts :
+        - asset: assets/font/proximanovacond-black.otf
   # fonts:
   #   - family: Schyler
   #     fonts:
@@ -106,7 +112,14 @@ icons_launcher:
 
 flutter_native_splash :
   color : "#FFFFFF"
-  image : assets/images/logo_SplashScreen.png
+  image : assets/images/logo_SplashScreenNew.png
   android : true
   ios : true
   web : true
+  android_gravity: center
+  android_12 :
+    color : "#FFFFFF"
+    image : assets/images/logo_SplashScreenNew.png
+
+
+

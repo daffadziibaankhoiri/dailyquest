@@ -1,3 +1,4 @@
+import 'package:dailyquest/pages/login_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -9,31 +10,16 @@ class Introduction extends StatefulWidget {
 }
 
 class _IntroductionState extends State<Introduction> {
-  String ProximaNova = "proximanovacond-medium.otf";
+  String ProximaNova = "ProximaNovaBold";
   Color warna = Color(0xFF720000);
   @override
   Widget build(BuildContext context) {
     List<PageViewModel> pageView = [
       PageViewModel(
-        titleWidget: Text(
-          "Kerjakan tugas sesuai keahlian",
-          style: TextStyle(
-            fontFamily: ProximaNova,
-            fontWeight: FontWeight.w900,
-            fontSize: 20
-          ),
-        ),
+        titleWidget: TeksTebal("Kerjakan tugas sesuai keahlian"),
         bodyWidget: Padding(
           padding: const EdgeInsets.only(left: 30, right: 30),
-          child: Text(
-              "Temukan dan selesaikan tugas yang sesuai dengan kemampuan dan keahlian khusus yang Anda miliki.",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-                fontFamily: ProximaNova,
-                fontSize: 15
-            ),
-          ),
+          child: TeksBiasa("Temukan dan selesaikan tugas yang sesuai dengan kemampuan dan keahlian khusus yang Anda miliki."),
         ),
           image: Center(
               child: Padding(
@@ -46,25 +32,10 @@ class _IntroductionState extends State<Introduction> {
 
       ),
       PageViewModel(
-          titleWidget: Text(
-            "Beri tugas kepada orang lain",
-            style: TextStyle(
-                fontFamily: ProximaNova,
-                fontWeight: FontWeight.w900,
-                fontSize: 20
-            ),
-          ),
+          titleWidget: TeksTebal("Beri tugas kepada orang lain"),
           bodyWidget: Padding(
             padding: const EdgeInsets.only(left: 30, right: 30),
-            child: Text(
-            "Serahkan tugas-tugas yang perlu diselesaikan kepada orang lain yang memiliki keahlian yang tepat.",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontFamily: ProximaNova,
-                  fontSize: 15
-              ),
-            ),
+            child: TeksBiasa("Serahkan tugas-tugas yang perlu diselesaikan kepada orang lain yang memiliki keahlian yang tepat."),
           ),
           image: Center(
               child: Padding(
@@ -76,25 +47,10 @@ class _IntroductionState extends State<Introduction> {
           )
       ),
       PageViewModel(
-          titleWidget: Text(
-            "Dapatkan uang dari tugas yang selesai",
-            style: TextStyle(
-                fontFamily: ProximaNova,
-                fontWeight: FontWeight.w900,
-                fontSize: 20
-            ),
-          ),
+          titleWidget: TeksTebal("Dapatkan uang dari tugas yang selesai"),
           bodyWidget: Padding(
             padding: const EdgeInsets.only(left: 30, right: 30),
-            child: Text(
-             "Peroleh penghasilan dari setiap tugas yang berhasil Anda selesaikan dengan baik.",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontFamily: ProximaNova,
-                  fontSize: 15
-              ),
-            ),
+            child: TeksBiasa("Peroleh penghasilan dari setiap tugas yang berhasil Anda selesaikan dengan baik.")
           ),
           image: Center(
               child: Padding(
@@ -125,7 +81,8 @@ class _IntroductionState extends State<Introduction> {
         skip: Text(
           "Lewati",
           style: TextStyle(
-            fontWeight: FontWeight.bold
+            fontWeight: FontWeight.bold,
+            color: Colors.grey
           ),
         ),
         dotsDecorator: DotsDecorator(
@@ -140,8 +97,30 @@ class _IntroductionState extends State<Introduction> {
 
         ),
         onDone: (){
-
+          Navigator.pushReplacementNamed(context, '/login');
+          // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Login_Page()));
         },
+      ),
+    );
+  }
+  Widget TeksTebal(String isi){
+    return Text(
+      isi,
+      style: TextStyle(
+          fontFamily: ProximaNova,
+          fontWeight: FontWeight.w900,
+          fontSize: 20
+      ),
+    );
+  }
+  Widget TeksBiasa (String isi){
+    return Text(
+      isi,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+
+          fontFamily: ProximaNova,
+          fontSize: 14
       ),
     );
   }
